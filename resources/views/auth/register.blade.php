@@ -82,12 +82,21 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 ">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
-                        </div>
+
+
+
+                            <div class="col-md-6 ">
+
+                                  <a href="{{ url('/auth/facebook')  }}">Login With Facebook</a>
+
+                            </div>
+
+                      </div>
                     </form>
                 </div>
             </div>
