@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 
 
-Route::group(['namespace' => 'Admin'], function() {
+Route::group(['namespace' => 'Admin'], function () {
 
-Route::get('second', 'SecondController@showString');
+    Route::get('second', 'SecondController@showString');
 });
 
 Route::resource('news', 'Newscontroller');
@@ -28,7 +28,7 @@ Route::resource('news', 'Newscontroller');
 
 
 
-Auth::routes(['verify'=>true]);
+Auth::routes(['verify' => true]);
 
 
 
@@ -38,7 +38,7 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
-Route::get('/', function() {
+Route::get('/', function () {
 
     return  "home";
 });
@@ -64,22 +64,20 @@ Route::get('fillable', 'CrudController@getOffers');
 //    Route::get('store', 'CrudController@store')->name('offers.store');
 
 // });
-
-Route::group( [
+Route::group([
 
 
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 
 ], function () {
 
 
-    Route::group(['prefix' => 'offers'] ,function() {
+    Route::group(['prefix' => 'offers'], function () {
         Route::get('create', 'CrudController@create');
         Route::post('store', 'CrudController@store')->name('offers.store');
+        Route::get('all', 'CrudController@getOffers');
     });
-
-
 });
 
 

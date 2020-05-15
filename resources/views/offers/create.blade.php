@@ -90,14 +90,6 @@
     @endforeach
 
  {{-- <span class="sr-only">(current)</span> --}}
-
-
-
-
-
-
-
-
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -126,7 +118,7 @@
         <div class="content">
 
             <div class="title m-b-md">
-                add your offer
+               {{ __('messages.add your offer') }}
             </div>
 
             @if(Session::has('sucess'))
@@ -143,9 +135,9 @@
 
                 <div class="form-group">
 
-                    <label>offer name</label>
+                    <label>{{ __('messages.offer name') }}</label>
 
-                    <input class="form-control" type="text" name="name">
+                    <input class="form-control" type="text" name="name_en" placeholder="name of product">
                     @error('name')
                     <small class="form-text text-danger">{{ $message }}</small>
 
@@ -153,9 +145,25 @@
 
                 </div>
 
+
                 <div class="form-group">
 
-                    <label>offer prices</label>
+                    <label>{{ __('messages.offer name') }}</label>
+
+                    <input class="form-control" type="text" name="name_ar" placeholder="اسم المنتح">
+                    @error('name')
+                    <small class="form-text text-danger">{{ $message }}</small>
+
+                    @enderror
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>{{ __("messages.offer prices") }}</label>
+
                     <input class="form-control" type="text" name="price">
                     @error('price')
                     <small class="form-text text-danger">{{ $message }}</small>
@@ -166,8 +174,21 @@
 
                 <div class="form-group">
 
-                    <label>offer details </label>
-                    <input class="form-control" type="text" name="details">
+                    <label>{{ __("messages.offer details") }} </label>
+
+                    <input class="form-control" type="text" name="details_ar" placeholder="تفاصيل المنتج">
+                    @error('details')
+                    <small class="form-text text-danger">{{ $message }}</small>
+
+                    @enderror
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>{{ __("messages.offer details") }} </label>
+
+                    <input class="form-control" type="text" name="details_en" placeholder="product details">
                     @error('details')
                     <small class="form-text text-danger">{{ $message }}</small>
 
@@ -177,7 +198,7 @@
 
 
 
-                <button type="submit" class="btn btn-primary">Save Offer</button>
+                <button type="submit" class="btn btn-primary">{{ __("messages.Save Offer") }}</button>
 
 
 
@@ -187,4 +208,4 @@
     </div>
 </body>
 
-</html>
+   </html>
